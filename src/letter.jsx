@@ -116,7 +116,7 @@ function Letter() {
       <section className={`letter-intro ${isOpening ? 'letter-is-opening' : ''} ${isOpen ? 'letter-is-hidden' : ''}`} aria-labelledby="letter-intro-heading">
         <div className="letter-intro-glass">
           <button className="kitty-letter-button" type="button" onClick={openLetter} disabled={isOpening} aria-label="Open the letter Kitty is holding">
-            <img src="/kitty_letter.png" alt="Hello Kitty holding a letter" />
+            <img src={`${import.meta.env.BASE_URL}kitty_letter.png`} alt="Hello Kitty holding a letter" />
             <span className="letter-envelope-glow" aria-hidden="true" />
             <span className="letter-envelope-flap" aria-hidden="true" />
           </button>
@@ -124,7 +124,7 @@ function Letter() {
             <LetterTypewriter text={promptMessage} active={promptActive} onComplete={() => setPromptFinished(true)} />
           </p>
           <button className={`conversation-doodle-button ${showDoodle ? 'visible' : ''}`} type="button" onClick={openLetter} disabled={!showDoodle || isOpening} aria-label="Click to open the letter">
-            <img src="/conv_doodle.png" alt="" />
+            <img src={`${import.meta.env.BASE_URL}conv_doodle.png`} alt="" />
             <span>click me</span>
           </button>
         </div>

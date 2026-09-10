@@ -7,7 +7,7 @@ import BirthdayPage from './BirthdayPage';
 import Letter from './letter';
 
 const CYAN_BALLOON_COLORS = ['#00e5ff', '#00bcd4', '#26c6da', '#00acc1', '#4dd0e1', '#80deea'];
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyR-KXV6lO2dTcXiATyOizepP0YNSp4ksVafaDzqcYMvzmwZ7ZdTD865tXPpAMz5nkZ/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWt3NAFRBWh4N7GvDLIGH3Rbwed6IqER-sDPAp6K2fkN_Y5LgIr_sS0H8onOMiJhU6/exec';
 
 function Typewriter({ text, start, speed = 32, onComplete }) {
   const [visibleText, setVisibleText] = useState('');
@@ -453,7 +453,7 @@ function App() {
       </div>
 
       <section className={`card ${showHome ? 'visible' : ''}`}>
-        <img className="homepage-kitty" src="/kitty.png" alt="Hello Kitty taking a photo" />
+        <img className="homepage-kitty" src={`${import.meta.env.BASE_URL}kitty.png`} alt="Hello Kitty taking a photo" />
         <div className="message-block">
           <h2>
             <Typewriter

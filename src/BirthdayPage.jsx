@@ -129,7 +129,7 @@ function BirthdayPage({ onNext }) {
         {fireworkPositions.map((firework) => <Firework key={firework.left} {...firework} />)}
       </div>
       <section className="birthday-finale-content" aria-labelledby="birthday-heading">
-        <img className="birthday-kitty" src="/kitty.png" alt="Hello Kitty taking a photo" />
+        <img className="birthday-kitty" src={`${import.meta.env.BASE_URL}kitty.png`} alt="Hello Kitty taking a photo" />
         <div className="birthday-message-glass">
           
           <h1 id="birthday-heading" className={`birthday-heading ${headingVisible ? 'visible' : ''}`}>
@@ -149,7 +149,7 @@ function BirthdayPage({ onNext }) {
           </p>
         </div>
         <div className={`birthday-conversation ${doodleVisible ? 'visible' : ''}`} aria-hidden={!doodleVisible}>
-          <img src="/conv_doodle.png" alt="" />
+          <img src={`${import.meta.env.BASE_URL}conv_doodle.png`} alt="" />
           <span style={{ fontSize: '1.1rem' }}>Captured your smile, Keep smiling</span>
         </div>
         <button className={`birthday-next ${nextVisible ? 'visible' : ''}`} type="button" onClick={onNext} disabled={!nextVisible}>

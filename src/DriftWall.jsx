@@ -2,24 +2,24 @@ import { useEffect, useRef } from 'react';
 import './DriftWall.css';
 
 const items = [
-  { image: '../public/1.jpeg'},
-  { image: '../public/2.jpeg'},
-  { image: '../public/3.jpeg'},
-  { image: '../public/4.jpeg'},
-  { image: '../public/5.jpeg'},
-  { image: '../public/6.jpeg'},
-  { image: '../public/7.jpeg'},
-  { image: '../public/8.jpeg'},
-  { image: '../public/9.jpeg'},
-  { image: '../public/10.jpeg'},
-  { image: '../public/11.jpeg'},
-  { image: '../public/12.jpeg'},
-  { image: '../public/13.jpeg'},
-  { image: '../public/14.jpeg'},
-  { image: '../public/15.jpeg'},
-  { image: '../public/16.jpeg'},
-  { image: '../public/17.jpg'},
-  { image: '../public/18.png'},
+  { image: '1.jpeg'},
+  { image: '2.jpeg'},
+  { image: '3.jpeg'},
+  { image: '4.jpeg'},
+  { image: '5.jpeg'},
+  { image: '6.jpeg'},
+  { image: '7.jpeg'},
+  { image: '8.jpeg'},
+  { image: '9.jpeg'},
+  { image: '10.jpeg'},
+  { image: '11.jpeg'},
+  { image: '12.jpeg'},
+  { image: '13.jpeg'},
+  { image: '14.jpeg'},
+  { image: '15.jpeg'},
+  { image: '16.jpeg'},
+  { image: '17.jpg'},
+  { image: '18.png'},
 ];
 
 function shuffledItems(group) {
@@ -63,7 +63,7 @@ function DriftWall() {
     <div className={`drift-column drift-column-${columnIndex + 1}`} key={columnIndex}>
       {columnItems[columnIndex].map((item) => (
         <figure className="drift-tile" key={item.title}>
-          <img src={item.image} alt={`Memory ${item.title}`} />
+          <img src={`${import.meta.env.BASE_URL}${item.image}`} alt={`Memory ${item.title}`} />
           <figcaption>{item.title}</figcaption>
         </figure>
       ))}
