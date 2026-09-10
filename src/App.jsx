@@ -207,13 +207,14 @@ function QuestionnairePage({ onFinish }) {
         answer4: answers.question4,
         answer5: answers.question5,
       };
+      const submissionBody = new URLSearchParams(formData);
 
       try {
         fetch(GOOGLE_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
           keepalive: true,
-          body: JSON.stringify(formData),
+          body: submissionBody,
         }).catch((error) => {
           console.error('Google Sheets submission failed:', error);
         });
