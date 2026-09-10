@@ -432,9 +432,9 @@
   }
 
   .homepage-kitty {
-    top: -128px;
-    right: 5%;
-    width: clamp(145px, 38vw, 220px);
+    top: -108px;
+    right: 2%;
+    width: clamp(130px, 34vw, 190px);
   }
 
   .journey-page {
@@ -448,5 +448,41 @@
 
   .question-navigation {
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: calc(100vw - 24px);
+    min-height: 340px;
+    padding: 28px 14px 18px;
+  }
+
+  .homepage-kitty {
+    top: -82px;
+    width: 128px;
+  }
+
+  .message-block h2 {
+    font-size: clamp(1.65rem, 9vw, 2.4rem);
+    line-height: 1.05;
+  }
+
+  .text {
+    font-size: 0.95rem;
+  }
+
+  .journey-panel {
+    width: calc(100vw - 24px);
+    min-height: 390px;
+    padding: 28px 16px;
+  }
+
+  .question-prompt {
+    font-size: 1.2rem;
+  }
+
+  .question-navigation .choice-button {
+    flex: 1 1 120px;
   }
 }

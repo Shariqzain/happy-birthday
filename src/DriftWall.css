@@ -76,7 +76,7 @@
 
 .drift-wall-columns {
   display: grid;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: start;
   gap: clamp(10px, 1.15vw, 18px);
   width: 100%;
@@ -211,7 +211,7 @@
   }
 
   .drift-wall-columns {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 10px;
   }
 
@@ -220,19 +220,7 @@
   }
 
   .drift-tile {
-    width: min(100%, calc((84vh - 70px) / 8));
+    width: 100%;
     border-radius: 12px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1500px) {
-  .drift-wall-columns {
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1100px) {
-  .drift-wall-columns {
-    grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 }

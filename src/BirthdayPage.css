@@ -349,3 +349,22 @@
     margin-top: 20px;
   }
 }
+
+@media (max-width: 380px) {
+  .birthday-finale-content {
+    padding-inline: 10px;
+  }
+
+  .birthday-message-glass {
+    padding-inline: 8px;
+  }
+
+  .birthday-heading {
+    font-size: 0.72rem;
+  }
+
+  .birthday-conversation {
+    right: 15%;
+    width: 48vw;
+  }
+}

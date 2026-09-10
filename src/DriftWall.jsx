@@ -26,10 +26,9 @@ function shuffledItems(group) {
   return [...group].sort(() => Math.random() - 0.5);
 }
 
-const columnItems = Array.from({ length: 9 }, (_, columnIndex) => {
-  const group = columnIndex % 2 === 0 ? items.slice(0, 8) : items.slice(8);
-  return shuffledItems(group);
-});
+const columnItems = Array.from({ length: 4 }, (_, columnIndex) => (
+  shuffledItems(items.filter((_, itemIndex) => itemIndex % 4 === columnIndex))
+));
 
 function DriftWall() {
   const wallRef = useRef(null);
@@ -59,10 +58,10 @@ function DriftWall() {
     };
   }, []);
 
-  const columns = Array.from({ length: 9 }, (_, columnIndex) => (
+  const columns = columnItems.map((column, columnIndex) => (
     <div className={`drift-column drift-column-${columnIndex + 1}`} key={columnIndex}>
-      {columnItems[columnIndex].map((item) => (
-        <figure className="drift-tile" key={item.title}>
+      {column.map((item) => (
+        <figure className="drift-tile" key={item.image}>
           <img src={`${import.meta.env.BASE_URL}${item.image}`} alt={`Memory ${item.title}`} />
           <figcaption>{item.title}</figcaption>
         </figure>
