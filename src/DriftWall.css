@@ -227,6 +227,10 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .drift-wall-columns-mobile .drift-tile figcaption {
+    display: none;
+  }
+
   .drift-column {
     gap: 10px;
   }
