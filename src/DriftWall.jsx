@@ -33,7 +33,7 @@ const desktopColumnItems = Array.from({ length: 9 }, (_, columnIndex) => {
 
 const mobileColumnItems = Array.from({ length: 4 }, () => shuffledItems(items));
 
-function DriftColumns({ columns, className }) {
+function DriftColumns({ columns, className, showLabels }) {
   return (
     <div className={`drift-wall-columns ${className}`}>
       {columns.map((column, columnIndex) => (
@@ -41,7 +41,7 @@ function DriftColumns({ columns, className }) {
           {column.map((item, itemIndex) => (
             <figure className="drift-tile" key={`${item.image}-${itemIndex}`}>
               <img src={`${import.meta.env.BASE_URL}${item.image}`} alt={`Memory ${item.image}`} />
-              <figcaption>{item.image}</figcaption>
+              {showLabels && <figcaption>{item.image}</figcaption>}
             </figure>
           ))}
         </div>
@@ -81,8 +81,8 @@ function DriftWall() {
   return (
     <section className="drift-wall-section" aria-label="Memories gallery">
       <div className="drift-wall" ref={wallRef}>
-        <DriftColumns columns={desktopColumnItems} className="drift-wall-columns-desktop" />
-        <DriftColumns columns={mobileColumnItems} className="drift-wall-columns-mobile" />
+        <DriftColumns columns={desktopColumnItems} className="drift-wall-columns-desktop" showLabels />
+        <DriftColumns columns={mobileColumnItems} className="drift-wall-columns-mobile" showLabels={false} />
       </div>
     </section>
   );
