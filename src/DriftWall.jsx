@@ -26,9 +26,29 @@ function shuffledItems(group) {
   return [...group].sort(() => Math.random() - 0.5);
 }
 
-const columnItems = Array.from({ length: 4 }, (_, columnIndex) => (
-  shuffledItems(items.filter((_, itemIndex) => itemIndex % 4 === columnIndex))
-));
+const desktopColumnItems = Array.from({ length: 9 }, (_, columnIndex) => {
+  const group = columnIndex % 2 === 0 ? items.slice(0, 8) : items.slice(8);
+  return shuffledItems(group);
+});
+
+const mobileColumnItems = Array.from({ length: 4 }, () => shuffledItems(items));
+
+function DriftColumns({ columns, className }) {
+  return (
+    <div className={`drift-wall-columns ${className}`}>
+      {columns.map((column, columnIndex) => (
+        <div className={`drift-column drift-column-${columnIndex + 1}`} key={columnIndex}>
+          {column.map((item, itemIndex) => (
+            <figure className="drift-tile" key={`${item.image}-${itemIndex}`}>
+              <img src={`${import.meta.env.BASE_URL}${item.image}`} alt={`Memory ${item.image}`} />
+              <figcaption>{item.image}</figcaption>
+            </figure>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
 
 function DriftWall() {
   const wallRef = useRef(null);
@@ -58,21 +78,11 @@ function DriftWall() {
     };
   }, []);
 
-  const columns = columnItems.map((column, columnIndex) => (
-    <div className={`drift-column drift-column-${columnIndex + 1}`} key={columnIndex}>
-      {column.map((item) => (
-        <figure className="drift-tile" key={item.image}>
-          <img src={`${import.meta.env.BASE_URL}${item.image}`} alt={`Memory ${item.title}`} />
-          <figcaption>{item.title}</figcaption>
-        </figure>
-      ))}
-    </div>
-  ));
-
   return (
     <section className="drift-wall-section" aria-label="Memories gallery">
       <div className="drift-wall" ref={wallRef}>
-        <div className="drift-wall-columns">{columns}</div>
+        <DriftColumns columns={desktopColumnItems} className="drift-wall-columns-desktop" />
+        <DriftColumns columns={mobileColumnItems} className="drift-wall-columns-mobile" />
       </div>
     </section>
   );

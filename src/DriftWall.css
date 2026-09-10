@@ -76,12 +76,16 @@
 
 .drift-wall-columns {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(9, minmax(0, 1fr));
   align-items: start;
   gap: clamp(10px, 1.15vw, 18px);
   width: 100%;
   transform: translate3d(var(--pointer-x), var(--pointer-y), 0) rotateX(8deg) rotateY(-5deg) rotateZ(-3deg) scale(1.04);
   transition: transform 0.6s ease-out;
+}
+
+.drift-wall-columns-mobile {
+  display: none;
 }
 
 .drift-column {
@@ -211,8 +215,16 @@
   }
 
   .drift-wall-columns {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 10px;
+  }
+
+  .drift-wall-columns-desktop {
+    display: none;
+  }
+
+  .drift-wall-columns-mobile {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .drift-column {

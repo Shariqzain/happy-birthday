@@ -316,6 +316,7 @@
   .birthday-message-glass {
     padding: 26px 10px;
     border-radius: 22px;
+    overflow: hidden;
   }
 
   .birthday-kitty {
@@ -325,8 +326,8 @@
   }
 
   .birthday-conversation {
-    top: -136px;
-    right: 19%;
+    top: -116px;
+    right: 6%;
     width: clamp(170px, 45vw, 250px);
   }
 
@@ -339,6 +340,8 @@
 
   .birthday-heading {
     font-size: clamp(0.78rem, 5.2vw, 1.65rem);
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .birthday-sparkle {
@@ -347,6 +350,7 @@
 
   .birthday-wish {
     margin-top: 20px;
+    overflow-wrap: anywhere;
   }
 }
 
@@ -364,7 +368,7 @@
   }
 
   .birthday-conversation {
-    right: 15%;
+    right: 3%;
     width: 48vw;
   }
 }
