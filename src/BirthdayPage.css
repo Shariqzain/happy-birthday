@@ -1,0 +1,351 @@
+.birthday-finale {
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.birthday-fireworks {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.firework {
+  position: absolute;
+  left: var(--firework-left);
+  bottom: var(--firework-bottom);
+  width: 2px;
+  height: 2px;
+  color: #ffd21f;
+  transform: scale(var(--firework-scale, 1.45));
+}
+
+.firework-core {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 18px 6px currentColor;
+  opacity: 0;
+  animation: firework-flash 5.8s var(--firework-delay) infinite both;
+}
+
+.firework-particle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--particle-size, 6px);
+  height: var(--particle-size, 6px);
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 14px 3px currentColor;
+  opacity: 0;
+  animation: firework-particle 5.8s var(--particle-delay) infinite both;
+}
+
+.firework-particles {
+  position: absolute;
+  inset: 0;
+}
+
+.firework-particle:nth-child(3n) {
+  --particle-size: 4px;
+}
+
+.firework-particle:nth-child(4n) {
+  --particle-size: 8px;
+}
+
+.firework-particle {
+  transform-origin: 0 0;
+  --particle-distance: 96px;
+  --particle-angle: 0deg;
+}
+
+@keyframes firework-flash {
+  0%,
+  8% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  12% {
+    opacity: 1;
+    transform: scale(2.3);
+  }
+  20%,
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+@keyframes firework-particle {
+  0%,
+  8% {
+    opacity: 0;
+    transform: rotate(var(--particle-angle)) translateY(0) scale(0.4);
+  }
+  12% {
+    opacity: 1;
+  }
+  63% {
+    opacity: 0.8;
+    transform: rotate(var(--particle-angle)) translateY(calc(var(--particle-distance) * -0.72)) scale(1);
+  }
+  91%,
+  100% {
+    opacity: 0;
+    transform: rotate(var(--particle-angle)) translateY(calc(var(--particle-distance) * -1)) scale(0.45);
+  }
+}
+
+.birthday-finale-content {
+  position: relative;
+  z-index: 2;
+  width: min(96vw, 1100px);
+  padding: 36px 30px;
+  text-align: center;
+}
+
+.birthday-message-glass {
+  position: relative;
+  padding: clamp(28px, 5vw, 56px) clamp(18px, 4vw, 52px);
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 20px 60px rgba(66, 7, 55, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
+}
+
+.birthday-kitty {
+  position: absolute;
+  top: -112px;
+  right: 2%;
+  z-index: 2;
+  width: clamp(150px, 19vw, 230px);
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 12px rgba(112, 53, 103, 0.2));
+}
+
+.birthday-conversation {
+  position: absolute;
+  top: -135px;
+  right: 16%;
+  z-index: 3;
+  width: clamp(210px, 27vw, 330px);
+  aspect-ratio: 1.68;
+  opacity: 0;
+  transform: translateY(12px) scale(0.88);
+  pointer-events: none;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.birthday-conversation.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.birthday-conversation img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.birthday-conversation span {
+  position: absolute;
+  top: 27%;
+  left: 13%;
+  width: 68%;
+  color: #000;
+  font: inherit;
+  font-size: clamp(0.58rem, 1.05vw, 0.86rem);
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.birthday-sparkle {
+  margin-bottom: 18px;
+  color: #fff2ad;
+  font-size: clamp(2rem, 5vw, 4rem);
+  opacity: 0;
+  transform: translateY(12px) scale(0.7);
+  text-shadow: 0 0 20px rgba(255, 242, 173, 0.8);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.birthday-sparkle.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.birthday-heading {
+  margin: 0;
+  color: transparent;
+  font-size: clamp(1rem, 4vw, 3.2rem);
+  line-height: 1.04;
+  font-weight: 700;
+  white-space: nowrap;
+  background: linear-gradient(110deg, #050505 0%, #050505 34%, #071966 46%, #041364 51%, #050505 63%, #050505 100%);
+  background-size: 240% 100%;
+  background-position: 100% 0;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 0;
+  transform: translateY(22px) scale(0.82);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.5), 0 9px 35px rgba(96, 19, 91, 0.2);
+  transition: opacity 1.15s ease, transform 1.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.birthday-heading.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: birthday-heading-glow 4.5s ease-in-out 1.2s infinite alternate, birthday-text-glitter 3.8s ease-in-out 1.4s infinite;
+}
+
+.birthday-emoji {
+  color: initial;
+  background: none;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+  text-shadow: none;
+}
+
+@keyframes birthday-text-glitter {
+  0%,
+  35% {
+    background-position: 100% 0;
+  }
+  70%,
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@keyframes birthday-heading-glow {
+  from { text-shadow: 0 0 12px rgba(255, 255, 255, 0.42), 0 9px 35px rgba(96, 19, 91, 0.35); }
+  to { text-shadow: 0 0 24px rgba(255, 226, 248, 0.82), 0 9px 35px rgba(96, 19, 91, 0.3); }
+}
+
+.birthday-wish {
+  max-width: 680px;
+  margin: 28px auto 0;
+  color: transparent;
+  font-family: 'Segoe Script', 'Bradley Hand', 'Brush Script MT', cursive;
+  font-weight: 600;
+  font-size: clamp(0.95rem, 2vw, 1.35rem);
+  line-height: 1.65;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  background: linear-gradient(110deg, #050505 0%, #050505 40%, #b47b00 50%, #050505 60%, #050505 100%);
+  background-size: 240% 100%;
+  background-position: 100% 0;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.birthday-wish.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: birthday-text-glitter 5.5s ease-in-out 1s infinite;
+}
+
+.birthday-next {
+  display: block;
+  min-width: 132px;
+  margin: 28px auto 0;
+  padding: 11px 22px;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px) scale(0.94);
+  transition: opacity 0.7s ease, transform 0.7s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.birthday-next.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.birthday-next:hover,
+.birthday-next:focus-visible {
+  background: #fff;
+  color: #000;
+  outline: none;
+  transform: translateY(0) scale(1.06);
+}
+
+.birthday-finale.reduced-motion .birthday-heading,
+.birthday-finale.reduced-motion .birthday-sparkle,
+.birthday-finale.reduced-motion .birthday-wish {
+  transition: none;
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+.birthday-finale.reduced-motion .firework-core,
+.birthday-finale.reduced-motion .firework-particle {
+  animation: none;
+  opacity: 0;
+}
+
+@media (max-width: 600px) {
+  .birthday-finale-content {
+    width: min(96vw, 620px);
+    padding: 24px 16px;
+  }
+
+  .birthday-message-glass {
+    padding: 26px 10px;
+    border-radius: 22px;
+  }
+
+  .birthday-kitty {
+    top: -94px;
+    right: 1%;
+    width: clamp(120px, 30vw, 175px);
+  }
+
+  .birthday-conversation {
+    top: -136px;
+    right: 19%;
+    width: clamp(170px, 45vw, 250px);
+  }
+
+  .birthday-conversation span {
+    top: 26%;
+    left: 12%;
+    width: 70%;
+    font-size: clamp(0.46rem, 2.1vw, 0.68rem);
+  }
+
+  .birthday-heading {
+    font-size: clamp(0.78rem, 5.2vw, 1.65rem);
+  }
+
+  .birthday-sparkle {
+    margin-bottom: 12px;
+  }
+
+  .birthday-wish {
+    margin-top: 20px;
+  }
+}

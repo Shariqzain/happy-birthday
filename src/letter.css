@@ -1,0 +1,370 @@
+.letter-page {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.letter-page.letter-is-open {
+  overflow-y: auto;
+}
+
+.letter-intro {
+  position: relative;
+  z-index: 2;
+  width: min(92vw, 720px);
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 52px 20px 80px;
+  opacity: 1;
+  transition: opacity 0.7s ease, transform 0.9s ease;
+}
+
+.letter-intro-glass {
+  position: relative;
+  width: min(92vw, 680px);
+  min-height: 560px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left:50%;
+  justify-content: center;
+  padding: 42px 26px 52px;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 55px rgba(112, 43, 103, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
+}
+
+.letter-intro.letter-is-hidden {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  min-height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.98);
+}
+
+.letter-star {
+  margin-bottom: 14px;
+  color: #fff0a6;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  text-shadow: 0 0 18px rgba(255, 240, 166, 0.8);
+}
+
+.kitty-letter-button {
+  position: relative;
+  display: block;
+  width: min(62vw, 280px);
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  animation: kitty-letter-enter 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.kitty-letter-button:hover,
+.kitty-letter-button:focus-visible {
+  animation: none;
+  filter: drop-shadow(0 14px 28px rgba(111, 28, 93, 0.24));
+  outline: none;
+  transform: translateY(-4px) scale(1.05);
+}
+
+.kitty-letter-button img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background: transparent;
+  filter: drop-shadow(0 12px 16px rgba(112, 53, 103, 0.2));
+}
+
+.kitty-letter-button:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 8px;
+}
+
+.letter-envelope-glow,
+.letter-envelope-flap {
+  position: absolute;
+  left: 33%;
+  top: 55%;
+  width: 34%;
+  height: 22%;
+  pointer-events: none;
+}
+
+.letter-envelope-glow {
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+.kitty-letter-button:hover .letter-envelope-glow,
+.kitty-letter-button:focus-visible .letter-envelope-glow {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.24), 0 0 24px rgba(255, 210, 108, 0.44);
+}
+
+.letter-envelope-flap {
+  transform-origin: 50% 100%;
+  border-top: 2px solid rgba(107, 45, 22, 0.4);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.letter-is-opening .letter-envelope-flap {
+  opacity: 1;
+  transform: rotateX(145deg) translateY(-8px);
+}
+
+@keyframes kitty-letter-enter {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.letter-prompt {
+  width: min(100%, 420px);
+  min-height: 2em;
+  margin: 24px 0 0;
+  overflow-wrap: anywhere;
+  color: #1a1a1a;
+  font-size: clamp(1rem, 2.3vw, 1.35rem);
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.35);
+}
+
+.conversation-doodle-button {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: clamp(160px, 24vw, 240px);
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(15px) scale(0.96);
+  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.25s ease;
+}
+
+.conversation-doodle-button.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.conversation-doodle-button:hover,
+.conversation-doodle-button:focus-visible {
+  outline: none;
+  filter: drop-shadow(0 9px 18px rgba(90, 25, 87, 0.22));
+  transform: translateY(-3px) scale(1.035);
+}
+
+.conversation-doodle-button:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 5px;
+}
+
+.conversation-doodle-button img {
+  width: 100%;
+  height: auto;
+}
+
+.conversation-doodle-button span {
+  position: absolute;
+  top: 28%;
+  left: 14%;
+  width: 67%;
+  color: #1a1a1a;
+  font: inherit;
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.letter-reveal {
+  position: relative;
+  z-index: 2;
+  width: min(92vw, 900px);
+  margin: 0 auto;
+  padding: 80px 0 100px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.letter-reveal.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.letter-paper {
+  position: relative;
+  padding: clamp(44px, 7vw, 82px) clamp(24px, 8vw, 90px);
+  border: 1px solid rgba(105, 69, 39, 0.3);
+  border-radius: 5px 14px 8px 12px;
+  background: #fff8e9;
+  box-shadow: 0 24px 60px rgba(75, 30, 65, 0.25), inset 0 0 45px rgba(190, 143, 78, 0.09);
+  color: #3f2a26;
+  isolation: isolate;
+}
+
+.letter-paper::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: '';
+  opacity: 0.32;
+  background-image: repeating-linear-gradient(0deg, transparent 0 31px, rgba(126, 92, 57, 0.07) 32px), radial-gradient(circle at 20% 20%, rgba(198, 155, 89, 0.12), transparent 28%);
+  pointer-events: none;
+}
+
+.letter-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 8px 13px;
+  border: 1px solid rgba(63, 42, 38, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  color: #3f2a26;
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.letter-close:hover,
+.letter-close:focus-visible {
+  background: #fff;
+  outline: none;
+  transform: scale(1.04);
+}
+
+.letter-paper-decoration {
+  margin-bottom: 20px;
+  color: #c18b25;
+  font-size: 1.7rem;
+}
+
+.letter-paper h1 {
+  margin: 0 0 32px;
+  color: #4b2b2b;
+  font-family: 'Segoe Script', 'Bradley Hand', cursive;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+}
+
+.letter-copy {
+  font-size: clamp(1rem, 1.45vw, 1.18rem);
+  line-height: 1.85;
+}
+
+.letter-copy p {
+  margin: 0 0 24px;
+}
+
+.letter-signature {
+  margin: 36px 0 0;
+  color: #4b2b2b;
+  font-family: 'Segoe Script', 'Bradley Hand', cursive;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  text-align: right;
+}
+
+.letter-final-message {
+  min-height: 2em;
+  margin: 34px auto 0;
+  color: #1a1a1a;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 700;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.letter-final-message.visible {
+  opacity: 1;
+}
+
+.letter-typing-cursor {
+  display: inline-block;
+  width: 0.18em;
+  height: 1em;
+  margin-left: 0.12em;
+  vertical-align: -0.12em;
+  background: currentColor;
+  animation: letter-cursor-blink 0.8s steps(1, end) infinite;
+}
+
+@keyframes letter-cursor-blink {
+  0%, 52% { opacity: 1; }
+  53%, 100% { opacity: 0.2; }
+}
+
+.letter-reduced-motion .kitty-letter-button,
+.letter-reduced-motion .letter-reveal,
+.letter-reduced-motion .conversation-doodle-button,
+.letter-reduced-motion .letter-intro {
+  animation: none;
+  transition: none;
+}
+
+.letter-reduced-motion .letter-reveal {
+  transform: none;
+}
+
+@media (max-width: 600px) {
+  .letter-intro {
+    padding-top: 34px;
+  }
+
+  .kitty-letter-button {
+    width: min(58vw, 220px);
+  }
+
+  .letter-intro-glass {
+    width: min(94vw, 520px);
+    min-height: 520px;
+    padding: 34px 14px 44px;
+    border-radius: 24px;
+  }
+
+  .conversation-doodle-button {
+    top: 10%;
+    left: 3%;
+    width: min(42vw, 170px);
+  }
+
+  .letter-reveal {
+    width: min(94vw, 900px);
+    padding-top: 34px;
+  }
+
+  .letter-paper {
+    padding: 54px 20px 38px;
+  }
+
+  .letter-copy {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
