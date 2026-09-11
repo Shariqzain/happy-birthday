@@ -72,7 +72,7 @@ const questions = [
     type: 'textarea',
   },
 ];
-const MINIMUM_LONG_ANSWER_WORDS = 25;
+const MINIMUM_LONG_ANSWER_WORDS = 10;
 
 function countWords(value) {
   return value.trim() ? value.trim().split(/\s+/).length : 0;
