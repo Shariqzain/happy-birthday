@@ -343,8 +343,7 @@
   }
 
   .letter-intro-glass {
-    width: 100%;
-    max-width: 520px;
+    width: min(calc(100% + 24px), 520px);
     min-height: 520px;
     margin-inline: auto;
     padding: 34px 14px 44px;
