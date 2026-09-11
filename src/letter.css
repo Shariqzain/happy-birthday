@@ -29,9 +29,9 @@
 }
 
 .letter-intro-glass {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
   width: min(92vw, 680px);
   min-height: 560px;
   margin-inline: auto;
@@ -347,6 +347,7 @@
   }
 
   .letter-intro-glass {
+    position: absolute;
     top: 50%;
     width: min(94vw, 520px);
     min-height: 520px;
