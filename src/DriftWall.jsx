@@ -81,7 +81,7 @@ function DriftWall() {
   return (
     <section className="drift-wall-section" aria-label="Memories gallery">
       <div className="drift-wall" ref={wallRef}>
-        <DriftColumns columns={desktopColumnItems} className="drift-wall-columns-desktop" showLabels />
+        <DriftColumns columns={desktopColumnItems} className="drift-wall-columns-desktop" showLabels={false} />
         <DriftColumns columns={mobileColumnItems} className="drift-wall-columns-mobile" showLabels={false} />
       </div>
     </section>
