@@ -333,6 +333,8 @@
 
 @media (max-width: 600px) {
   .letter-intro {
+    width: 100%;
+    padding-inline: 12px;
     padding-top: 34px;
   }
 
@@ -341,9 +343,9 @@
   }
 
   .letter-intro-glass {
-    width: min(94vw, 520px);
+    width: 100%;
+    max-width: 520px;
     min-height: 520px;
-    left: auto;
     margin-inline: auto;
     padding: 34px 14px 44px;
     border-radius: 24px;
@@ -355,7 +357,7 @@
 
   .conversation-doodle-button {
     top: 10%;
-    left: 3%;
+    left: 0;
     width: min(42vw, 170px);
   }
 
