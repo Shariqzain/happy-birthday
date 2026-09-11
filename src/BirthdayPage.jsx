@@ -150,7 +150,7 @@ function BirthdayPage({ onNext }) {
         </div>
         <div className={`birthday-conversation ${doodleVisible ? 'visible' : ''}`} aria-hidden={!doodleVisible}>
           <img src={`${import.meta.env.BASE_URL}conv_doodle.png`} alt="" />
-          <span style={{ fontSize: '1.1rem' }}>Captured your smile, Keep smiling</span>
+          <span>Captured your smile, Keep smiling</span>
         </div>
         <button className={`birthday-next ${nextVisible ? 'visible' : ''}`} type="button" onClick={onNext} disabled={!nextVisible}>
           Next <span aria-hidden="true">→</span>

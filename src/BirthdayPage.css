@@ -166,7 +166,7 @@
   width: 68%;
   color: #000;
   font: inherit;
-  font-size: clamp(0.58rem, 1.05vw, 0.86rem);
+  font-size: 1.1rem;
   font-weight: 700;
   line-height: 1.35;
   text-align: center;
@@ -321,8 +321,10 @@
 
   .birthday-kitty {
     top: -94px;
-    right: 1%;
+    right: auto;
+    left: 50%;
     width: clamp(120px, 30vw, 175px);
+    transform: translateX(-50%);
   }
 
   .birthday-conversation {
@@ -335,7 +337,7 @@
     top: 26%;
     left: 12%;
     width: 70%;
-    font-size: clamp(0.46rem, 2.1vw, 0.68rem);
+    font-size: clamp(0.42rem, 1.9vw, 0.62rem);
   }
 
   .birthday-heading {
