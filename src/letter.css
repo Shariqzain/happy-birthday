@@ -14,7 +14,8 @@
 .letter-intro {
   position: relative;
   z-index: 2;
-  width: min(92vw, 720px);
+  align-self: center;
+  width: min(100%, 720px);
   min-height: 100vh;
   margin: 0 auto;
   display: flex;
@@ -28,7 +29,8 @@
 
 .letter-intro-glass {
   position: relative;
-  width: min(92vw, 680px);
+  align-self: center;
+  width: min(100%, 680px);
   min-height: 560px;
   margin-inline: auto;
   display: flex;
@@ -333,7 +335,7 @@
 
 @media (max-width: 600px) {
   .letter-intro {
-    width: 100%;
+    width: min(100%, 720px);
     padding-inline: 12px;
     padding-top: 34px;
   }
@@ -343,7 +345,7 @@
   }
 
   .letter-intro-glass {
-    width: min(calc(100% + 24px), 520px);
+    width: min(100%, 520px);
     min-height: 520px;
     margin-inline: auto;
     padding: 34px 14px 44px;
