@@ -137,7 +137,7 @@ function Letter() {
           <div className="letter-copy">
             <p>A very happy happy birthdayyy to youuuu ✨✨ May allah fulfill all your wishes and grant you a higher place in jannahhh.</p>
             <p>You're my favourite notification 😊, and will always be. I want to thankk youuu for everything you did to mee, and for everything we did together ✨✨.</p>
-            <p>From COSC design team to solving leecode problems together, it's indeeeeed been a long journey. I remember each and every moment spent with you. Thosee sticker battles are sooo funn with youu. Even our instgram blend never disappoints usss 😛😛. Sometimes darkk, sometimes funny, and mostly it'll spam with those couple reeeeelsss, ahhh. I've created a lott of memories with youuu, which I won't forget lifetime (Tum bhi mai bhulna).</p>
+            <p>From COSC design team to solving leecode problems together, it's indeeeeed been a long journey. I remember each and every moment spent with you. Thosee sticker battles are sooo funn with youu. Even our instgram blend never disappoints usss 😛😛. Sometimes darkk, sometimes funny, and mostly it'll spam with those couple reeeeelsss, ahhh. I've created a lott of memories with youuu, which I won't forget lifetime (Tum bhi nai bhulna).</p>
             <p>You're a veryy important person in my lifee and will always be ☺️. I'll be available at anytime you need me and will always be there for your support.</p>
             <p>I want you to stay happy forever, keep smiling like you alwaysss do, and do great things in your lifeee and the afterlife. ❤️</p>
           </div>
